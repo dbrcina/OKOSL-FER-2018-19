@@ -1,0 +1,21 @@
+#!/bin/bash
+
+sudo adduser weakling
+
+su -weakling
+#problem nastaje jer se weakling ne nalazi u grupi sudo, stoga ne moze pristupipiti sudo naredbama
+#jedino odlaskom u root mozemo stvoriti weakling da bude u grupi sudoera
+
+sudo su
+
+adduser weakling sudo
+
+exit
+
+sudo apt install hollywood
+
+exit
+
+su -
+
+deluser --remove-all-files weakling

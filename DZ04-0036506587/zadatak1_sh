@@ -1,0 +1,24 @@
+#!/bin/bash
+
+name=$(whoami)
+touch $name
+
+echo "USER: $name" > $name
+
+echo "HOME DIR: $(grep $name /etc/passwd | cut -d: -f6)" >> $name
+
+echo "SHELL: $(grep $name /etc/passwd | cut -d: -f7)" >> $name
+
+groups=($(id -nG))
+
+prim=${groups[0]}
+
+unset groups[0]
+
+echo "GROUPS : ${groups[@]}" >> $name
+
+echo "PRIMARY: $prim" >> $name
+
+cat $name
+
+rm $name

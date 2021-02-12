@@ -1,0 +1,15 @@
+#!/bin/bash
+
+myUserName=$(whoami)
+
+sudo su -
+#mijenjamo globalne varijable i pozicioniramo se u root
+#nakon toga se bez zastavicce - vracamo u myUserName tako da ostanemo i dalje u /root
+
+su $myUserName
+
+sudo ls .
+
+#jedino root ima ovlasti za r w i x /roota, ostalima je zabranjeno
+
+exit
